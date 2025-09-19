@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgFunder News</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        body {
+
+            font-family: 'Arial', sans-serif;
+
+            background-color: #f5f5f5;
+
+            color: #333;
+
+        }
+
+
+
+        /* Header */
+
+        .header {
+
+            background-color: white;
+
+            padding: 15px 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #eee;
+
+        }
+
+
+
+        .logo {
+
+            font-size: 32px;
+
+            font-weight: bold;
+
+            color: #333;
+
+        }
+
+
+
+        .logo span {
+
+            background-color: #c8e864;
+
+            padding: 5px 10px;
+
+            border-radius: 3px;
+
+        }
+
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 30px;
+
+        }
+
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #333;
+
+            font-weight: 500;
+
+        }
+
+
+
+        /* Filter and Search */
+
+        .filter-search {
+
+            background-color: white;
+
+            padding: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+
+        .filter-btn {
+
+            background-color: #333;
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border: none;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .search-container {
+
+            position: relative;
+
+            flex: 1;
+
+            max-width: 500px;
+
+            margin-left: 50px;
+
+        }
+
+
+
+        .search-input {
+
+            width: 100%;
+
+            padding: 12px 50px 12px 20px;
+
+            border: 2px solid #ddd;
+
+            font-size: 16px;
+
+            background-color: #f9f9f9;
+
+            border-radius: 9999px;
+        }
+
+
+
+        .search-btn {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: none;
+
+            border: none;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .search-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: #666;
+        }
+
+
+
+        /* Main Container */
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 20px;
+
+        }
+
+
+
+        /* Hero Section */
+
+        .hero-section {
+
+            background-color: white;
+
+            border: 1px solid #ddd;
+
+            margin-bottom: 20px;
+
+            display: flex;
+
+            min-height: 400px;
+
+        }
+
+
+
+        .hero-content {
+
+            flex: 1;
+
+            padding: 40px;
+
+        }
+
+
+
+        .hero-title {
+
+            font-size: 36px;
+
+            font-weight: bold;
+
+            line-height: 1.2;
+
+            margin-bottom: 20px;
+
+            color: #333;
+
+        }
+
+
+
+        .hero-description {
+
+            font-size: 16px;
+
+            color: #666;
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .hero-image {
+
+            flex: 1;
+
+            background: url('assets/images/No-alternative-text-description-for-this-image-20.jpg') center/cover;
+        }
+
+
+
+        .tags {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+
+        .tag {
+
+            background-color: #c8e864;
+
+            color: #333;
+
+            padding: 5px 12px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            border-radius: 2px;
+
+        }
+
+
+
+        .tag.deeptech {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.ai {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.alternative-protein {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.foodtech {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.biomanufacturing {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.climate {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.agtech {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        .tag.investing {
+
+            background-color: #c8e864;
+
+        }
+
+
+
+        /* Two Column Layout */
+
+        .two-column {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 0;
+            margin-bottom: 20px;
+
+        }
+
+
+        .two-column > article:first-child {
+            border-right: 0;
+        }
+
+        .two-column > article:last-child {
+            border-left: 1px solid #ddd;
+        }
+
+
+        .article-card {
+
+            background-color: white;
+
+            border: 1px solid #ddd;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .article-content {
+
+            padding: 30px;
+
+        }
+
+
+
+        .article-title {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            line-height: 1.3;
+
+            margin-bottom: 15px;
+
+            color: #333;
+
+        }
+
+
+
+        .article-image {
+
+            width: 100%;
+
+            height: 250px;
+
+            background: center/cover;
+        }
+
+
+
+        /* Editor's Pick Section */
+
+        .editors-pick {
+
+            background-color: #4a5c3a;
+
+            color: white;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .editors-pick-header {
+
+            background-color: #4a5c3a;
+
+            color: #c8e864;
+
+            padding: 20px 30px 10px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .editors-pick-content {
+
+            display: flex;
+
+            padding: 0 30px 30px;
+
+        }
+
+
+
+        .editors-pick-text {
+
+            flex: 1;
+
+            padding-right: 30px;
+
+        }
+
+
+
+        .editors-pick-title {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            line-height: 1.3;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .editors-pick-image {
+
+            width: 350px;
+
+            height: 200px;
+
+            background: url('assets/images/Revol-Greens-lettuce.jpg') center/cover;
+            border-radius: 8px;
+
+        }
+
+
+
+        /* Grid Layout */
+
+        .grid-layout {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1px;
+
+            background-color: #ddd;
+
+            border: 1px solid #ddd;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .grid-item {
+
+            background-color: white;
+
+            padding: 30px 20px;
+
+        }
+
+
+
+        .grid-title {
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            line-height: 1.3;
+
+            margin-bottom: 15px;
+
+            color: #333;
+
+        }
+
+
+
+        .grid-image {
+
+            width: 100%;
+
+            height: 180px;
+
+            background: center/cover;
+            margin-top: 15px;
+
+            border-radius: 4px;
+
+        }
+
+
+
+        /* Text Grid */
+
+        .text-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1px;
+
+            background-color: #ddd;
+
+            border: 1px solid #ddd;
+
+            margin-bottom: 40px;
+
+        }
+
+
+
+        .text-grid-item {
+
+            background-color: white;
+
+            padding: 20px;
+
+        }
+
+
+
+        .text-grid-title {
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            line-height: 1.3;
+
+            color: #333;
+
+        }
+
+
+
+        /* Newsletter Section */
+
+        .newsletter-sidebar {
+
+            display: none;
+        }
+
+
+
+        .newsletter-title {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+
+        .newsletter-description {
+
+            font-size: 14px;
+
+            color: #666;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .newsletter-form {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+        }
+
+
+
+        .newsletter-input {
+
+            padding: 12px;
+
+            border: 2px solid #ddd;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .newsletter-btn {
+
+            background-color: #333;
+
+            color: white;
+
+            padding: 12px;
+
+            border: none;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .ad-space {
+
+            width: 100%;
+
+            height: 120px;
+
+            background: center/cover;
+            margin: 20px 0;
+
+            border-radius: 4px;
+
+        }
+
+
+
+        /* Footer */
+
+        .footer {
+
+            background-color: white;
+
+            padding: 40px 20px;
+
+            border-top: 1px solid #eee;
+
+            margin-top: 60px;
+
+        }
+
+
+
+        .footer-content {
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+
+        .footer-logo {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .footer-description {
+
+            color: #666;
+
+            margin-bottom: 25px;
+
+            line-height: 1.5;
+
+        }
+
+
+
+        .footer-newsletter {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+
+        .footer-input {
+
+            padding: 12px 15px;
+
+            border: 2px solid #ddd;
+
+            width: 250px;
+
+        }
+
+
+
+        .footer-btn {
+
+            background-color: #333;
+
+            color: white;
+
+            padding: 12px 25px;
+
+            border: none;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .footer-terms {
+
+            font-size: 12px;
+
+            color: #999;
+
+            margin-bottom: 30px;
+
+        }
+
+
+
+        .footer-bottom {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #eee;
+
+            font-size: 12px;
+
+            color: #666;
+
+        }
+
+
+
+        .footer-links {
+
+            display: flex;
+
+            gap: 20px;
+
+        }
+
+
+
+        .footer-links a {
+
+            color: #333;
+
+            text-decoration: none;
+
+        }
+
+
+
+        .social-links {
+
+            display: flex;
+
+            gap: 15px;
+
+        }
+
+
+        .social-links a svg {
+            width: 18px;
+            height: 18px;
+            fill: #333;
+            display: block;
+        }
+
+        .social-links a:hover svg {
+            fill: #000;
+        }
+
+
+        .disclaimer {
+
+            font-size: 11px;
+
+            color: #999;
+
+            line-height: 1.4;
+
+            margin-top: 20px;
+
+            text-align: left;
+
+        }
+
+
+        /* Ticker Strip */
+        .ticker-strip {
+            background-color: #c8e864;
+            overflow: hidden;
+            border-top: 1px solid #d7ef7a;
+            border-bottom: 1px solid #d7ef7a;
+            margin-top: 40px;
+        }
+
+        .ticker-track {
+            display: inline-block;
+            white-space: nowrap;
+            padding: 12px 0;
+            animation: ticker-move 20s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            font-weight: 800;
+            font-size: 14px;
+            color: #111;
+            letter-spacing: 0.3px;
+            margin: 0 28px;
+            text-transform: uppercase;
+        }
+
+        .ticker-sep {
+            display: inline-block;
+            margin: 0 28px;
+            font-weight: 800;
+            color: #111;
+        }
+
+        @keyframes ticker-move {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+
+        /* Responsive adjustments */
+
+        @media (max-width: 1024px) {
+
+            .newsletter-sidebar {
+
+                position: static;
+
+                width: 100%;
+
+                transform: none;
+
+                margin: 20px 0;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .two-column {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            
+
+            .grid-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            
+
+            .text-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            
+
+            .hero-section {
+
+                flex-direction: column;
+
+            }
+
+            
+
+            .editors-pick-content {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <span>AFN</span>
+
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </header>
+
+
+
+    <!-- Filter and Search -->
+
+    <div class="filter-search">
+
+        <button class="filter-btn">FILTER BY TOPIC +</button>
+
+        <div class="search-container">
+
+            <input type="text" class="search-input" placeholder="SEARCH">
+
+            <button class="search-btn" aria-label="Search">
+                <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.71.71l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1114 9.5 4.5 4.5 0 019.5 14z"/>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <!-- Hero Section -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <h1 class="hero-title">Genomines raises $45m Series A to mine battery-grade nickel from genetically enhanced plants</h1>
+
+                <p class="hero-description">The company is exploring proof-of-concept projects with Hyundai Motor Group, Jaguar Land Rover, and battery manufacturers.</p>
+
+                <div class="tags">
+
+                    <span class="tag biomanufacturing">BIOMANUFACTURING & BIOLOGICALS</span>
+
+                    <span class="tag deeptech">DEEPTECH</span>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image"></div>
+
+        </section>
+
+
+
+        <!-- Two Column Layout -->
+
+        <div class="two-column">
+
+            <article class="article-card">
+
+                <div class="article-content">
+
+                    <h2 class="article-title">Armed with $13m in seed funding, BRAINR ramps up plans to digitize food manufacturing</h2>
+
+                    <div class="tags">
+
+                        <span class="tag ai">ARTIFICIAL INTELLIGENCE</span>
+
+                        <span class="tag">EMEA</span>
+
+                    </div>
+
+                </div>
+
+                <div class="article-image" style="background-image: url('assets/images/Brainr-cofounders-Image-credit-Brainr-768x392.jpg')"></div>
+            </article>
+
+
+
+            <article class="article-card">
+
+                <div class="article-content">
+
+                    <h2 class="article-title">CoryPro Ingredients signs deal with Polymerals to establish guar protein facility in Mexico</h2>
+
+                    <div class="tags">
+
+                        <span class="tag alternative-protein">ALTERNATIVE PROTEIN</span>
+
+                        <span class="tag foodtech">FOODTECH</span>
+
+                    </div>
+
+                </div>
+
+                <div class="article-image" style="background-image: url('assets/images/Cory-Pro-e1743463728199-768x462.jpg')"></div>
+            </article>
+
+        </div>
+
+
+
+        <!-- Editor's Pick -->
+
+        <section class="editors-pick">
+
+            <div class="editors-pick-header">EDITOR'S PICK</div>
+
+            <div class="editors-pick-content">
+
+                <div class="editors-pick-text">
+
+                    <h2 class="editors-pick-title">Revol Greens makes 'painful' decision to close operations in California, chase efficiency gains in Texas</h2>
+
+                    <div class="tags">
+
+                        <span class="tag agtech">AGTECH</span>
+
+                        <span class="tag investing">INVESTING</span>
+
+                    </div>
+
+                </div>
+
+                <div class="editors-pick-image"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Grid Layout -->
+
+        <div class="grid-layout">
+
+            <article class="grid-item">
+
+                <h3 class="grid-title">Terra Oleo emerges from stealth with fermentation platform to make high value fats with microbes</h3>
+
+                <div class="grid-image" style="background-image: url('assets/images/Revol-Greens-lettuce.jpg')"></div>
+            </article>
+
+
+
+            <article class="grid-item">
+
+                <h3 class="grid-title">Mad Capital closes $78m oversubscribed fund to bridge the gap between Wall St. and regen ag</h3>
+
+                <div class="grid-image" style="background-image: url('assets/images/Founders-1-1536x1024.jpg')"></div>
+            </article>
+
+
+
+            <article class="grid-item">
+
+                <h3 class="grid-title">Molecular farming startup Finally Foods raises $1.2m, strikes deal with CBC Group</h3>
+
+                <div class="grid-image" style="background-image: url('assets/images/DSC03976.1-300x200.jpg')"></div>
+            </article>
+
+
+
+            <article class="grid-item">
+
+                <h3 class="grid-title">California Cultured breaks new ground with patent on cocoa butter via plant cell culture</h3>
+
+                <div class="tags">
+
+                    <span class="tag biomanufacturing">BIOMANUFACTURING & BIOLOGICALS</span>
+
+                    <span class="tag foodtech">FOODTECH</span>
+
+                </div>
+
+                <div class="grid-image" style="background-image: url('assets/images/Cocoa-iStock-every-day-better-to-do-everything-you-love-300x192.jpg')"></div>
+            </article>
+
+
+
+            <article class="grid-item">
+
+                <h3 class="grid-title">Bioweg lands $19m Series A to replace microplastics with bio alternatives in everyday items</h3>
+
+                <div class="tags">
+
+                    <span class="tag biomanufacturing">BIOMANUFACTURING & BIOLOGICALS</span>
+
+                    <span class="tag climate">CLIMATE & SUSTAINABILITY</span>
+
+                </div>
+
+                <div class="grid-image" style="background-image: url('assets/images/Biowegs-team-in-laboratory-300x200.jpg')"></div>
+            </article>
+
+
+
+            <article class="grid-item">
+
+                <h3 class="grid-title">NoFence plots US, European expansion for virtual fencing following oversubscribed $35m Series B raise</h3>
+
+                <div class="tags">
+
+                    <span class="tag agtech">AGTECH</span>
+
+                    <span class="tag climate">CLIMATE & SUSTAINABILITY</span>
+
+                </div>
+
+                <div class="grid-image" style="background-image: url('assets/images/DSC03976.1-300x200.jpg')"></div>
+            </article>
+
+        </div>
+
+
+
+        <!-- Text Grid -->
+
+        <div class="text-grid">
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">Real agtech innovation means 'providing a final product farmers actually want' says Kubota manager</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">ORF Genetics scales growth factor production for cultivated meat: 'The question is not if this market will grow, but when'</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">Egg protein IP fight escalates as VTT challenges Every Co patent in Europe</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">Global Methane Hub project leverages satellite tech to reduce methane emissions in Latam and Africa</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">'Objectively unreasonable': Onego Bio slams The Every Co in high-stakes patent fight</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">The Week in AgriFoodTech: Eat Just's new alt-chicken, regen ag certification for coffee, PepsiCo + National Geographic</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">How food and agriculture giants are sleepwalking into irrelevance</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">Aspyre Foods taps duckweed for casein and RuBisCO: 'We're maximizing the biomass value'</h4>
+
+            </article>
+
+
+
+            <article class="text-grid-item">
+
+                <h4 class="text-grid-title">Strauss Group launches 'cow-free' range featuring animal-free whey from Imagindairy</h4>
+
+            </article>
+
+        </div>
+
+
+
+        <!-- Newsletter Sidebar -->
+
+        <aside class="newsletter-sidebar">
+
+            <h3 class="newsletter-title">AgFunderNewsletter</h3>
+
+            <p class="newsletter-description">Sign up for our weekly newsletter.</p>
+
+            <form class="newsletter-form">
+
+                <input type="email" class="newsletter-input" placeholder="Email Address">
+
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+
+            </form>
+
+            <div class="ad-space"></div>
+
+            <div class="ad-space"></div>
+
+        </aside>
+
+    </div>
+
+
+    <!-- Ticker Strip -->
+    <div class="ticker-strip" aria-label="Latest highlights ticker">
+        <div class="ticker-track">
+            <span class="ticker-item">Food & Agriculture</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Reporting on the evolution of food & agriculture</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">DeepTech</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">AgTech</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Biomanufacturing & Biologicals</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Climate & Sustainability</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">FoodTech</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Investing</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">EMEA</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Americas</span>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <h2 class="footer-logo">AgFunderNews</h2>
+
+            <p class="footer-description">AFN is part of the AgFunder family. To learn more about AgFunder, visit us at www.agfunder.com.</p>
+
+            <p class="footer-description">Sign up to our weekly newsletter for the latest news, views and research about the world's food and agriculture industries.</p>
+
+            
+
+            <form class="footer-newsletter">
+
+                <input type="email" class="footer-input" placeholder="Email Address">
+
+                <button type="submit" class="footer-btn">Subscribe</button>
+
+            </form>
+
+            
+
+            <p class="footer-terms">By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</p>
+
+            
+
+            <div class="footer-bottom">
+
+                <div>
+
+                    <span>© 2025 AgFunder. All rights reserved.</span>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">Privacy and Cookie Policy</a>
+
+                    <a href="#">Terms of Use</a>
+
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="social-links">
+
+                    <a href="#" aria-label="Facebook" title="Facebook">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.1 5.53 21.2 10.3 22v-7.01H7.66v-2.92h2.64V9.41c0-2.6 1.55-4.04 3.93-4.04 1.14 0 2.33.2 2.33.2v2.56h-1.31c-1.29 0-1.69.8-1.69 1.62v1.95h2.87l-.46 2.92h-2.41V22c4.77-.8 8.44-4.9 8.44-9.93z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter / X" title="Twitter / X">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M18.36 3H21l-6.9 7.9L22 21h-6.8l-4.35-5.1L5.9 21H3l7.4-8.5L2 3h6.8l4 4.7L18.36 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M19 3A2.94 2.94 0 0122 6v12a2.94 2.94 0 01-3 3H5a2.94 2.94 0 01-3-3V6a2.94 2.94 0 013-3zm-11 16V10H5v9zm-1-10a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM20 19v-5.4c0-2.9-1.54-4.2-3.6-4.2a3.13 3.13 0 00-2.85 1.57h-.05V10H11v9h2.6v-5c0-1.32.25-2.6 1.89-2.6S17.5 12.6 17.5 14v5z"/>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+            
+
+            <div class="disclaimer">
+
+                This site is operated by AgFunder Inc.,'AgFunder', which is not a registered broker-dealer. AgFunder does not give investment advice, endorsement, analysis or recommendations with respect to any securities. All securities listed here are being offered by, and all information included on this site is the responsibility of, the applicable issuer of such securities. AgFunder has not taken any steps to verify the adequacy, accuracy, or completeness of any information. Neither AgFunder nor any of its officers, directors, agents and employees makes any warranty, express or implied, or any kind whatsoever related to the adequacy, accuracy or completeness of any information on this site or the use of information on this site. By accessing this site and any pages thereof, you agree to be bound by the Terms of Use and Privacy Policy.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

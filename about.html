@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AgriPulse Pakistan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo span {
+            background-color: #c8e864;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-links a.active {
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: white;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            justify-self: start;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 0;
+            color: #333;
+            text-align: left;
+        }
+
+        .hero-title .highlight {
+            background-color: #c8e864;
+            padding: 0 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .hero-bg-image { display: none; }
+
+        .about-us-label {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            text-align: right;
+            justify-self: end;
+        }
+
+        /* Secondary image section */
+        .about-image-section {
+            background-color: white;
+            padding: 0 20px;
+        }
+
+        .about-image-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image-inner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background-color: white;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .mission-title {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .mission-title .highlight {
+            background-color: #c8e864;
+            padding: 0 5px;
+        }
+
+        .mission-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* What We Offer Section */
+        .what-we-offer {
+            background-color: white;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: right;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .offers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .offer-item:last-child {
+            border-bottom: none;
+        }
+
+        .offer-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            min-width: 80px;
+        }
+
+        .offer-description {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Staff Section */
+        .staff-section {
+            background-color: white;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+        }
+
+        .staff-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: right;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .staff-member {
+            border: 1px solid #ddd;
+            padding: 0;
+            background-color: white;
+        }
+
+        .staff-name {
+            background-color: #c8e864;
+            color: #333;
+            padding: 10px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .staff-image {
+            width: 100%;
+            height: 250px;
+            background: center/cover;
+            filter: grayscale(100%);
+            position: relative;
+        }
+
+        .staff-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.25);
+        }
+
+        .staff-info {
+            padding: 20px 15px;
+        }
+
+        .staff-role {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .staff-bio {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .staff-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        /* AgFunder Info Section */
+        .agfunder-info {
+            background-color: white;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .agfunder-title {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .agfunder-title .highlight {
+            background-color: #c8e864;
+            padding: 0 5px;
+        }
+
+        .agfunder-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .agfunder-description a {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .vc-info-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .vc-info-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .footer-newsletter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .footer-input {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            width: 250px;
+        }
+
+        .footer-btn {
+            background-color: #333;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .footer-terms {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a svg {
+            width: 18px;
+            height: 18px;
+            fill: #333;
+            display: block;
+        }
+
+        .social-links a:hover svg {
+            fill: #000;
+        }
+
+        .disclaimer {
+            font-size: 11px;
+            color: #999;
+            line-height: 1.4;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Ticker Strip */
+        .ticker-strip {
+            background-color: #c8e864;
+            overflow: hidden;
+            border-top: 1px solid #d7ef7a;
+            border-bottom: 1px solid #d7ef7a;
+            margin-top: 40px;
+        }
+
+        .ticker-track {
+            display: inline-block;
+            white-space: nowrap;
+            padding: 12px 0;
+            animation: ticker-move 20s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            font-weight: 800;
+            font-size: 14px;
+            color: #111;
+            letter-spacing: 0.3px;
+            margin: 0 28px;
+            text-transform: uppercase;
+        }
+
+        .ticker-sep {
+            display: inline-block;
+            margin: 0 28px;
+            font-weight: 800;
+            color: #111;
+        }
+
+        @keyframes ticker-move {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mission-section,
+            .agfunder-info {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .about-us-label {
+                position: static;
+                text-align: center;
+                margin-top: 20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <span>AP</span>
+        </div>
+        <nav class="nav-links">
+            <a href="about.html" class="active">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-inner">
+            <div class="hero-content">
+            <h1 class="hero-title">Reporting on Pakistan's <span class="highlight">food and agriculture</span> systems for people and planet.</h1>
+            </div>
+            <div class="about-us-label">ABOUT US</div>
+        </div>
+    </section>
+
+    <!-- Secondary About Image Section -->
+    <section class="about-image-section">
+        <div class="about-image-inner">
+            <img src="assets/images/about.jpeg" alt="About AgFunderNews">
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div>
+                <h2 class="mission-title">AgFunderNews Pakistan goes <span class="highlight">beyond the headlines</span></h2>
+            </div>
+            <div>
+                <p class="mission-description">We analyze the people, companies and technologies shaping Pakistan's agrifood economy. From smallholder resilience to export competitiveness, our reporting delivers deeper insight into foodtech, agtech and climate innovation nationwide.</p>
+            </div>
+        </section>
+
+        <!-- What We Offer Section -->
+        <section class="what-we-offer">
+            <h2 class="section-title">What we offer in Pakistan</h2>
+            <div class="offers-list">
+                <div class="offer-item">
+                    <div class="offer-number">01</div>
+                    <div class="offer-description">ORIGINAL REPORTING AND MULTIMEDIA COVERAGE OF PAKISTAN'S FOODTECH AND AGTECH STARTUP ACTIVITY.</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-number">02</div>
+                    <div class="offer-description">DEEP INSIGHT INTO THE PEOPLE, COMPANIES, AND TECHNOLOGIES IMPACTING FARMERS AND CONSUMERS IN PAKISTAN.</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-number">03</div>
+                    <div class="offer-description">EXCLUSIVE INTERVIEWS WITH ENTREPRENEURS, INVESTORS AND POLICYMAKERS SHAPING THE SECTOR.</div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-number">04</div>
+                    <div class="offer-description">DATA AND ANALYSIS OF THE LATEST TRENDS IN PAKISTAN'S FOOD AND AGRICULTURE.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff Section -->
+        <section class="staff-section">
+            <h2 class="staff-title">The AgFunder News Pakistan staff</h2>
+            <div class="staff-grid">
+                <div class="staff-member">
+                    <div class="staff-name">MUHAMMAD ZOHAIB</div>
+                    <div class="staff-image" style="background-image: url('assets/images/zohaib.jpg')"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-role">News Staff</h3>
+                        <p class="staff-bio">Covering foodtech, agtech and climate innovation with a focus on clarity and impact.</p>
+                        <div class="staff-social">
+                            <a href="#" class="social-icon">𝕏</a>
+                            <a href="#" class="social-icon">✉</a>
+                            <a href="#" class="social-icon">in</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-name">ASADULLAH AHMAD</div>
+                    <div class="staff-image" style="background-image: url('assets/images/zohaib.jpg')"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-role">News Staff</h3>
+                        <p class="staff-bio">Reporting across agri-food innovation, startups and investment developments worldwide.</p>
+                        <div class="staff-social">
+                            <a href="#" class="social-icon">𝕏</a>
+                            <a href="#" class="social-icon">✉</a>
+                            <a href="#" class="social-icon">in</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-name">ANONYMOUS</div>
+                    <div class="staff-image" style="background-image: url('assets/images/zohaib.jpg')"></div>
+                    <div class="staff-info">
+                        <h3 class="staff-role">News Staff</h3>
+                        <p class="staff-bio">Editorial support across beats; researching, verifying and curating daily coverage.</p>
+                        <div class="staff-social">
+                            <a href="#" class="social-icon">𝕏</a>
+                            <a href="#" class="social-icon">✉</a>
+                            <a href="#" class="social-icon">in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AgFunder Info Section -->
+        <section class="agfunder-info">
+            <div>
+                <h2 class="agfunder-title">AgriPulse Pakistan is part of the <span class="highlight">AgFunder family.</span></h2>
+            </div>
+            <div>
+                <h3 class="vc-info-title">AgFunder is a global venture capital firm</h3>
+                <p class="vc-info-description">Founded in 2013 on a mission to bring more investment and innovation into the agriculture and food space, AgFunder created AgFunderNews (AFN) to educate more people about the opportunity. Today, AgFunder operates globally with offices in Silicon Valley, London and Singapore, publishing industry-leading research about global and Pakistan agrifoodtech investment, which you can find <a href="#">here</a>.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Ticker Strip -->
+    <div class="ticker-strip" aria-label="Latest highlights ticker">
+        <div class="ticker-track">
+            <span class="ticker-item">Food & Agriculture</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Reporting on the evolution of food & agriculture</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">DeepTech</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">AgTech</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Biomanufacturing & Biologicals</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Climate & Sustainability</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">FoodTech</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Investing</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">EMEA</span>
+            <span class="ticker-sep">\</span>
+            <span class="ticker-item">Americas</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2 class="footer-logo">AgriPulse Pakistan</h2>
+            <p class="footer-description">AFN is part of the AgFunder family. To learn more about AgFunder, visit us at www.agfunder.com.</p>
+            <p class="footer-description">Sign up to our weekly newsletter for the latest news, views and research about the world's food and agriculture industries.</p>
+            
+            <form class="footer-newsletter">
+                <input type="email" class="footer-input" placeholder="Email Address">
+                <button type="submit" class="footer-btn">Subscribe</button>
+            </form>
+            
+            <p class="footer-terms">By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</p>
+            
+            <div class="footer-bottom">
+                <div>
+                    <span>© 2025 AgFunder. All rights reserved.</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy and Cookie Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" title="Facebook">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.1 5.53 21.2 10.3 22v-7.01H7.66v-2.92h2.64V9.41c0-2.6 1.55-4.04 3.93-4.04 1.14 0 2.33.2 2.33.2v2.56h-1.31c-1.29 0-1.69.8-1.69 1.62v1.95h2.87l-.46 2.92h-2.41V22c4.77-.8 8.44-4.9 8.44-9.93z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter / X" title="Twitter / X">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M18.36 3H21l-6.9 7.9L22 21h-6.8l-4.35-5.1L5.9 21H3l7.4-8.5L2 3h6.8l4 4.7L18.36 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M19 3A2.94 2.94 0 0122 6v12a2.94 2.94 0 01-3 3H5a2.94 2.94 0 01-3-3V6a2.94 2.94 0 013-3zm-11 16V10H5v9zm-1-10a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM20 19v-5.4c0-2.9-1.54-4.2-3.6-4.2a3.13 3.13 0 00-2.85 1.57h-.05V10H11v9h2.6v-5c0-1.32.25-2.6 1.89-2.6S17.5 12.6 17.5 14v5z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                This site is operated by AgFunder Inc.,'AgFunder', which is not a registered broker-dealer. AgFunder does not give investment advice, endorsement, analysis or recommendations with respect to any securities. All securities listed here are being offered by, and all information included on this site is the responsibility of, the applicable issuer of such securities. AgFunder has not taken any steps to verify the adequacy, accuracy, or completeness of any information. Neither AgFunder nor any of its officers, directors, agents and employees makes any warranty, express or implied, or any kind whatsoever related to the adequacy, accuracy or completeness of any information on this site or the use of information on this site. By accessing this site and any pages thereof, you agree to be bound by the Terms of Use and Privacy Policy.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
